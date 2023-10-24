@@ -35,7 +35,10 @@ public class ChessMatch {
 	
 	private void validateSourcePosition(Position position) {
 		if (!board.thereIsAPiece(position)) {
-			throw new ChessException("Erro:(" + this.getClass().getSimpleName() + "): Não existe peça nessa posição no tabuleiro.");	
+			throw new ChessException("Erro:(" + this.getClass().getSimpleName() + "): Não existe peça na posição de origem no tabuleiro.");	
+		}
+		if (!board.piece(position).isThereAnyPossibleMove()) {
+			throw new ChessException("Erro:(" + this.getClass().getSimpleName() + "): Não existe movimentos possiveis para a peça escolhida.");	
 		}
 	}
 	
