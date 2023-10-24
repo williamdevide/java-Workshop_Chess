@@ -7,7 +7,7 @@ public class Board {
 	
 	public Board(int rows, int columns) {
 		if (rows < 1 || columns < 1) {
-			throw new BoardException("Erro criando tabuleiro: É necessário que hajá ao menos 1 linha e 1 coluna");
+			throw new BoardException("Erro:(" + this.getClass().getSimpleName() + "): É necessário que hajá ao menos 1 linha e 1 coluna");
 		}
 		this.rows = rows;
 		this.columns = columns;
@@ -24,21 +24,21 @@ public class Board {
 
 	public Piece piece(int row, int column) {
 		if (!positionExists(row, column)) {
-			throw new BoardException("Erro: Posição não existe no tabuleiro");
+			throw new BoardException("Erro:(" + this.getClass().getSimpleName() + "): Posição não existe no tabuleiro");
 		}
 		return pieces[row][column];
 	}
 	
 	public Piece piece(Position position) {
 		if (!positionExists(position)) {
-			throw new BoardException("Erro: Posição não existe no tabuleiro");
+			throw new BoardException("Erro:(" + this.getClass().getSimpleName() + "): Posição não existe no tabuleiro");
 		}
 		return pieces[position.getRow()][position.getColumn()];
 	}
 	
 	public void placePiece(Piece piece, Position position) {
 		if (thereIsAPiece(position)) {
-			throw new BoardException("Erro: Já existe uma peça na posição: " + position);
+			throw new BoardException("Erro:(" + this.getClass().getSimpleName() + "): Já existe uma peça na posição: " + position);
 		}
 		pieces[position.getRow()][position.getColumn()] = piece;
 		piece.position = position;
@@ -46,7 +46,7 @@ public class Board {
 	
 	public Piece removePiece(Position position) {
 		if (!positionExists(position)) {
-			throw new BoardException("Erro: Posição não existe no tabuleiro");
+			throw new BoardException("Erro:(" + this.getClass().getSimpleName() + "): Posição não existe no tabuleiro");
 		}
 		if (piece(position) == null) {
 			return null;
@@ -56,7 +56,6 @@ public class Board {
 			pieces[position.getRow()][position.getColumn()] = null;
 			return aux;
 		}
-		
 	}
 	
 	private boolean positionExists(int row, int column) {
@@ -69,7 +68,7 @@ public class Board {
 	
 	public boolean thereIsAPiece(Position position) {
 		if (!positionExists(position)) {
-			throw new BoardException("Erro: Posição não existe no tabuleiro");
+			throw new BoardException("Erro:(" + this.getClass().getSimpleName() + "): Posição não existe no tabuleiro");
 		}
 		return piece(position) != null;
 	}

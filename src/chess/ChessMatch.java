@@ -35,7 +35,7 @@ public class ChessMatch {
 	
 	private void validateSourcePosition(Position position) {
 		if (!board.thereIsAPiece(position)) {
-			throw new ChessException("Erro: Posição não existe no tabuleiro");
+			throw new ChessException("Erro:(" + this.getClass().getSimpleName() + "): Não existe peça nessa posição no tabuleiro.");	
 		}
 	}
 	
