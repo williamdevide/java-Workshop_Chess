@@ -14,8 +14,6 @@ import chess.pieces.Knight;
 import chess.pieces.Pawn;
 import chess.pieces.Queen;
 import chess.pieces.Rook;
-import entities.E31Company;
-import entities.E31Individual;
 
 public class ChessMatch {
 
