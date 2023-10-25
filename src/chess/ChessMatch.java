@@ -30,7 +30,7 @@ public class ChessMatch {
 
 	public ChessMatch() {
 		
-		Scanner sc = new Scanner(System.in);
+		//Scanner sc = new Scanner(System.in);
 		
 		board = new Board(8, 8);
 		turn = 1;
@@ -38,15 +38,16 @@ public class ChessMatch {
 		check = false;
 		enPassantVulnerable = null;
 		
-		System.out.println("Partir Oficial (1) ou Partida Teste (2)?");
-		int tipoPartida = sc.nextInt();
+		//System.out.println("Partir Oficial (1) ou Partida Teste (2)?");
+		int tipoPartida = 1;
 		
 		if (tipoPartida == 2) {
 			initialSetup2();
 		} else {
 			initialSetup();
 		}
-					
+		
+		//sc.close();
 	}
 
 	public int getTurn() {
